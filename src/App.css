@@ -2,6 +2,17 @@
   text-align: center;
 }
 
+.smallCol{
+    float:left;
+    width:20%;
+}
+
+.bigCol{
+    float:left;
+    width:20%;
+}
+label { display: block; width: 200px; }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
