@@ -73,7 +73,7 @@ const App = () => {
     }; 
 
     const handleAddFile = event => {
-        if (event.type === "click") {
+        if (event.type === "click" && newFileName !== "") {
             let tempItems = items; 
             let id = Object.keys(items).length + 1; 
             tempItems[id] = {id:id, name:newFileName, content:""};
@@ -84,11 +84,13 @@ const App = () => {
             tempCollection.items.push(id); 
             tempCollections[folder.id] = tempCollection; 
             setCollections(tempCollections); 
+            document.getElementById("add-file").value = "";
+            setFile(tempItems[id]); 
         }
         setNewFileName(event.target.value); 
     };
     const handleAddFolder = event => {
-        if (event.type === "click") {
+        if (event.type === "click"  && newFolderName !== "") {
             let tempCollections = collections; 
             let id = Object.keys(collections).length + 1; 
             tempCollections[id] = {id:id, name:newFolderName, collections: [], items:[]}
@@ -97,6 +99,9 @@ const App = () => {
             tempCollection.collections.push(id); 
             tempCollections[folder.id] = tempCollection; 
             setCollections(tempCollections); 
+            document.getElementById("add-folder").value = "";
+            setFolder(tempCollections[id]); 
+            setFile(null); 
         }
         setNewFolderName(event.target.value); 
     }; 
@@ -182,11 +187,11 @@ const EditFolder = ({onFolderNameChange, folder, onAddFile, onAddFolder, onDelet
         </p>  */}
         <p></p>
         <label>Add file with name:</label>
-        <input onChange={onAddFile}/>
+        <input id="add-file" onChange={onAddFile}/>
         <button type="button" onClick={onAddFile}>Add</button>
         <p></p>
         <label>Add subfolder with name:</label>
-        <input onChange={onAddFolder}/>
+        <input id="add-folder" onChange={onAddFolder}/>
         <button type="button" onClick={onAddFolder}>Add</button>
         <p/>
         <br/>
