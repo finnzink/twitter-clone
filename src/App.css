@@ -1,15 +1,33 @@
+html, div, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+
 .App {
+    height: 100%; 
   text-align: center;
 }
 
 .smallCol{
+    padding-left: 20px; 
     float:left;
     width:20%;
 }
 
-.bigCol{
+.folder{
+    background-color: rgb(206, 206, 206);
+    padding-left: 20px; 
     float:left;
     width:20%;
+    height:100%;
+}
+
+.bigCol{
+    padding-left: 20px; 
+    float:left;
+    width:35%;
 }
 label { display: block; width: 200px; }
 
